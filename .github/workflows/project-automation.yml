@@ -19,7 +19,7 @@ on:
 
 env:
   PROJECT_ORG: riflessidigitali
-  PRIMARY_CODEOWNER: @eri-trabiccolo
+  PRIMARY_CODEOWNER: "{owners[0].toString()}"
   PROJECT_IDS: 1,2
 
 jobs:
