@@ -18,9 +18,9 @@ on:
       - reopened
 
 env:
-  PROJECT_ORG: {{{PROJECT_ORG}}}
+  PROJECT_ORG: riflessidigitali
   PRIMARY_CODEOWNER: "@eri-trabiccolo"
-  PROJECT_ID: {{{PROJECT_ID}}}
+  PROJECT_ID: "1"
 
 jobs:
 
