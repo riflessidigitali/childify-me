@@ -32,7 +32,7 @@ jobs:
       PROJECT_IDS: ${{ env.PROJECT_IDS }}
     steps:
       - name: Compute outputs
-        run: echo "PROJECT_IDS=${{ env.PROJECT_IDS }}" >> $GITHUB_OUTPUT
+        run: echo "PROJECT_IDS=[${{ env.PROJECT_IDS }}]" >> $GITHUB_OUTPUT
 
   #######################################
   # Add issue to the Development project.
