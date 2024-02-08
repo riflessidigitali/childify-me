@@ -19,7 +19,7 @@ on:
 
 env:
   PROJECT_ORG: riflessidigitali
-  PRIMARY_CODEOWNER: eri-trabiccolo
+  PRIMARY_CODEOWNER: "@eri-trabiccolo"
   PROJECT_ID: 1
   ISSUE_MAN_PAT: ${{ secrets.IP_ISSUE_MANAGE_PAT }}
 
