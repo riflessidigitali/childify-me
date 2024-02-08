@@ -21,7 +21,7 @@ env:
   PROJECT_ORG: riflessidigitali
   PRIMARY_CODEOWNER: "@eri-trabiccolo"
   PROJECT_ID: 1
-  ISSUE_MAN_PAT: ${{ secrets.IP_ISSUE_MANAGE_PAT }}
+  ISSUE_MANAGE_PAT: ${{ secrets.IP_ISSUE_MANAGE_PAT }}
 
 jobs:
 
@@ -78,5 +78,5 @@ jobs:
       - name: Assign issue
         uses: pozil/auto-assign-issue@v1
         with:
-          repo-token: ${{ env.ISSUE_MAN_PAT }}
+          repo-token: ${{ env.ISSUE_MANAGE_PAT }}
           assignees: ${{ env.PRIMARY_CODEOWNER }}
