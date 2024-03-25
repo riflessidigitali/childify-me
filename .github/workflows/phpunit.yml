@@ -69,7 +69,7 @@ jobs:
 
       - name: Install test dependencies
         if: ${{ fromJson(vars.WP_VERSIONS)[0] }} != 'none'
-        run: echo "${{ fromJson(vars.WP_VERSIONS)[0] }}" && composer run install:wp -- --version "${{ matrix.wp }}" --host "127.0.0.1:3306"
+        run: composer run install:wp -- --version "${{ matrix.wp }}" --host "127.0.0.1:3306"
 
       - name: Run tests
         run: composer test
