@@ -14,13 +14,16 @@ concurrency:
 jobs:
   tests:
     runs-on: ubuntu-latest
-
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
       matrix:
         php: ${{ fromJson(vars.PHP_VERSIONS) }}
         wp: ${{ fromJson(vars.WP_VERSIONS) }}
-
+        include:
+            - wp: 'nightly'
+              experimental: true 
+          
 
     name: PHP ${{ matrix.php }} (with WP ${{ matrix.wp }})
 
@@ -64,7 +67,7 @@ jobs:
           root-password: 'password'
 
       - name: Install test dependencies
-        if: ${{ matrix.wp != 'none' }}
+        if: ${{ fromJson(vars.WP_VERSIONS)[0] != 'none' }}
         run: composer run install:wp -- --version "${{ matrix.wp }}" --host "127.0.0.1:3306"
 
       - name: Run tests
