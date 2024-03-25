@@ -64,7 +64,7 @@ jobs:
           root-password: 'password'
 
       - name: Install test dependencies
-        if: ${{ matrix.wp }}
+        if: ${{ matrix.wp != 'none' }}
         run: composer run install:wp -- --version "${{ matrix.wp }}" --host "127.0.0.1:3306"
 
       - name: Run tests
