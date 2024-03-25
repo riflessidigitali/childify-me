@@ -18,8 +18,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: vars.PHP_VERSIONS
-        wp: []
+        php: ${{ vars.PHP_VERSIONS }}
+        wp: ${{ vars.WP_VERSIONS }}
 
 
     name: PHP ${{ matrix.php }} (with WP ${{ matrix.wp }})
