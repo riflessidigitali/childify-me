@@ -20,6 +20,7 @@ jobs:
       matrix:
         php: ${{ fromJson(vars.PHP_VERSIONS) }}
         wp: ${{ fromJson(vars.WP_VERSIONS) }}
+        experimental: [false]
         include:
             - wp: 'nightly'
               experimental: true 
