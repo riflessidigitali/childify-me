@@ -1,8 +1,0 @@
-blank_issues_enabled: false
-contact_links:
-  - name: Support Helpdesk
-    url: https://secure.helpscout.net/inboxes/######
-    about: This is our internal Helpscout dashboard for managing customer support tickets
-  - name: Freescout Customer Support
-    url: https://help.caseproof.com
-    about: This is our Freescout instance for handling customer inquiries
