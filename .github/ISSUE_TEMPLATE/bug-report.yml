@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report an issue, bug, or defect
+description: "A structured template for reporting customer-reported bugs or issues with complete details"
 labels:
   - bug
 body:
@@ -7,62 +7,140 @@ body:
     id: description
     attributes:
       label: Description
-      description: A short description of the bug or issue
+      description: A clear description of what the bug is and how it affects the customer
     validations:
       required: true
 
   - type: textarea
     id: reproduction-steps
     attributes:
-      label: Reproduction Steps
-      description: Outline the steps someone can follow in order to reproduce the issue or bug
+      label: Steps to Reproduce
+      description: Provide the exact steps someone should follow to reproduce the issue
       value: |
         1. Go to...
         2. Click on...
-        3. Wait for...
+        3. Fill out...
+        4. Observe...
     validations:
       required: true
 
   - type: textarea
-    id: expected-outcome
+    id: expected-behavior
     attributes:
-      label: Expected Outcome
-      description: Describe what happened after performing the steps listed in the *Reproduction Steps*
+      label: Expected Behavior
+      description: What should happen when following the steps above?
       value: |
-        I'd expect the page to reload without any error messages being displayed.
+        Describe what the customer expected to happen.
     validations:
       required: true
 
   - type: textarea
-    id: actual-outcome
+    id: actual-behavior
     attributes:
-      label: Actual Outcome
-      description: Describe what actually happened after performing the steps listed in the *Reproduction Steps*
+      label: Actual Behavior
+      description: What actually happens when following the steps above?
       value: |
-        An error message is displayed on screen: `[22-Jan-2024 01:02:03 UTC] PHP Notice:  Only variables should be passed by reference in /srv/public/html/index.php on line 456`
+        Describe what actually happened, including any error messages.
+    validations:
+      required: true
+
+  - type: input
+    id: wordpress-version
+    attributes:
+      label: WordPress Version
+      description: Which version of WordPress is the customer using?
+      placeholder: "e.g., 6.4.2"
     validations:
       required: true
 
   - type: textarea
-    id: system-info
+    id: plugin-versions
     attributes:
-      label: System and Environment Information
-      description: The following information will aid in reproduction of the issue
+      label: Plugin Versions
+      description: List the versions of all relevant plugins including the affected product
       value: |
-        PHP Version:
-        WordPress Version:
-        Browser:
-        Operating System:
+        - [Product Name]: version x.x.x
+        - [Other Plugin]: version x.x.x
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP Version
+      description: Which version of PHP is the customer's server running? Visit /wp-admin/site-health.php?tab=debug > Server to find this.
+      placeholder: "e.g., 8.1.2"
+    validations:
+      required: true
+
+  - type: input
+    id: hosting-environment
+    attributes:
+      label: Hosting Environment
+      description: Details about the customer's hosting environment
+      placeholder: "e.g., WP Engine, shared hosting, VPS, etc."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: payment-gateway
+    attributes:
+      label: Payment Gateway (if applicable)
+      description: If this issue involves payments, which gateway is the customer using?
+      options:
+        - None
+        - Stripe
+        - PayPal
+        - Authorize.net
+        - Other
+    validations:
+      required: false
+
+  - type: input
+    id: transaction-id
+    attributes:
+      label: Transaction ID (if applicable)
+      description: If this is related to a specific transaction, provide the transaction ID (no sensitive data)
+    validations:
+      required: false
+
+  - type: textarea
+    id: api-logs
+    attributes:
+      label: API Logs (if applicable)
+      description: If you have API logs related to this issue, please include them here (with sensitive data removed)
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Videos
+      description: If applicable, add screenshots or videos to help explain the problem (drag and drop supported)
+    validations:
+      required: false
+
+  - type: input
+    id: support-ticket
+    attributes:
+      label: Support Ticket Link
+      description: Link to the relevant Helpscout or Freescout conversation
+      placeholder: "https://help.caseproof.com/conversation/######"
+    validations:
+      required: false
 
   - type: textarea
     id: additional-information
     attributes:
       label: Additional Information
-      description: Provide any additional information such as error logs, screenshots, screen recordings, or any other details relevant to the issue
+      description: Any other context or details about the problem
 
-  - type: input
-    id: helpdesk-link
+  - type: textarea
+    id: site-health-check
     attributes:
-      label: Help Desk Ticket Link
-      description: If this issue is related to a customer support request, please provide a link to the ticket
-
+      label: Site Health Check Report
+      description: While logged into the customers site, visit /wp-admin/site-health.php?tab=debug and click "Copy site info to clipboard," then copy the report here
+      render: shell
+      value: |
+        Paste the entire Site Health Check report here. This will help us understand the customer's environment.
