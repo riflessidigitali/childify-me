@@ -1,5 +1,5 @@
 name: Bug Report
-description: "A structured template for reporting customer-reported bugs or issues with complete details"
+description: A structured template for reporting customer-reported bugs or issues with complete details
 labels:
   - bug
 body:
