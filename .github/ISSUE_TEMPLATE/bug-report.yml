@@ -88,7 +88,7 @@ body:
       label: Payment Gateway (if applicable)
       description: If this issue involves payments, which gateway is the customer using?
       options:
-        - None
+        - "None"
         - Stripe
         - PayPal
         - Authorize.net
