@@ -15,7 +15,7 @@ jobs:
 
     - name: SVN THEME SLUG fall back on repo name
       if: ${{ env.SVN_THEME_SLUG == '' }}      
-      run: echo "SVN_THEME_SLUG=${{ github.repository }}" >> $GITHUB_ENV
+      run: echo "SVN_THEME_SLUG=${{ github.repository }}#${{github.repository_owner}}" >> $GITHUB_ENV
 
     - name: WHATEVER
       run: echo $SVN_THEME_SLUG
