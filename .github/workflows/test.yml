@@ -14,9 +14,8 @@ jobs:
       uses: actions/checkout@v4
 
     - name: SVN THEME SLUG fall back on repo name
-      env:
-        if: ${{ env.SVN_THEME_SLUG == '' }}
-        run: echo "SVN_THEME_SLUG=${${{ github.repository }}#${{ github.repository_owner }}/}" >> $GITHUB_ENV
+      if: ${{ env.SVN_THEME_SLUG == '' }}
+      run: echo "SVN_THEME_SLUG=${${{ github.repository }}#${{ github.repository_owner }}/}" >> $GITHUB_ENV
 
-    - echo
+    - name: WHATEVER
       run: echo $SVN_THEME_SLUG
