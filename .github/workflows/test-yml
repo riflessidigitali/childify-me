@@ -1,0 +1,22 @@
+name: Deploy to WordPress.org
+on:
+  workflow_dispatch:
+
+env:
+  SVN_THEME_SLUG: ${{ secrets.SVN_THEME_SLUG }}
+
+jobs:
+  tag:
+    name: New Theme Version
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: SVN THEME SLUG fall back on repo name
+      env:
+        if: ${{ env.SVN_THEME_SLUG == '' }}
+        run: echo "SVN_THEME_SLUG=${${{ github.repository }}#${{ github.repository_owner }}/}" >> $GITHUB_ENV
+
+    - echo
+      run: echo $SVN_THEME_SLUG
