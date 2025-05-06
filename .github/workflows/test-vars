@@ -1,0 +1,17 @@
+name: Test vars
+on:
+  workflow_dispatch:
+
+jobs:
+  tag:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: test var
+      run: echo ${{ github.repository_owner }}
+
+    - name: test other var
+      run: echo ${{ vars.TEAMS_CONFIG_PATH }}
